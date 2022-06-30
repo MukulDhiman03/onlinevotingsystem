@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootsrrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style/index.css">
+  <title>Online Voting System</title>
+</head>
+
+<body>
+  <div class="sticky-top text-center bg-dark text-white" id="nav-head">
+    Online Voting System
+  </div>
+  <hr>
+  <div class="container-fluid">
+    <div class="row mt-lg-4 justify-content-around" id="box">
+      <!-- left box  -->
+      <div class="col-lg-6" id="lbox">
+        <img class="img-fluid" src="./img/index.webp" alt="not found">
+      </div>
+
+      <!-- right box  -->
+      <div class="col-lg-4 p-lg-5 p-md-5" id="rbox">
+        <form action="./connection/login.php" method="post">
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" class="form-control" name="mobile" placeholder="Enter your mobile number">
+            <small id="mobileHelp" class="form-text text-muted">We'll never share your phone number with anyone
+              else.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+          </div>
+          <label>Login As:</label>
+          <select name="role" id="options">
+            <option value="1">Voter</option>
+            <option value="2">Party</option>
+          </select><br><br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary m-1">LogIn</button>
+          </div>
+          <div class="text-center mt-2">
+            Not Registerd Yet?? <a href="components/register.html">Register Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="bootsrrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #E3E3E3;
+}
+
+#nav-head {
+    height: 10vh;
+    font-size: 6vh;
+    font-weight: bolder;
+}
+input {
+    
+    border: none;
+}
+#options {
+    font-weight: bold;
+    background-color: blue;
+    color: #E3E3E3;
+    border: none;
+    border-radius: 15px;
+    width: 5vw;
+    height: 5vh;
+    text-align: center;
+}
