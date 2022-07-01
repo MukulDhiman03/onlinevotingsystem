@@ -24,8 +24,16 @@ if ($_SESSION['userdata']['status'] == 0) {
     <link rel="stylesheet" href="../style/dashboard.css">
     <style>
         #voted{
+            border-radius: 5px;
+            padding: 4px;
             color: black;
             background-color: green;
+        }
+        #votebtn{
+            border-radius: 5px;
+            padding: 4px;
+            color: white;
+            background-color: blue;
         }
     </style>
 </head>
@@ -80,13 +88,15 @@ if ($_SESSION['userdata']['status'] == 0) {
                                         if($_SESSION['userdata']['status']==0)
                                         {
                                             ?>
+                                            <div class="text-center mt-2">
                                             <input type="submit" name="votebtn" value="Vote" id="votebtn">
+                                            </div>
                                             <?php
                                         }
                                         else
                                         {
                                             ?>
-                                            <div class="text-center">
+                                            <div class="text-center mt-2">
                                             <button disabled type="button" name="votebtn" value="Vote" id="voted">Voted</button>
                                             </div>
                                             <?php
