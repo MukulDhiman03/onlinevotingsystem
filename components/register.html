@@ -8,38 +8,49 @@
     <title>Online Voting System | Register</title>
     <link rel="stylesheet" href="../bootsrrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
 
     <div class="sticky-top text-center bg-dark text-white" id="nav-head">
         Online Voting System
-      </div>
+    </div>
     <hr>
     <hr>
-    <div class="container">
+    <div class="container bg-dark text-white text-center">
         <h1>Register Here For Voting</h1>
     </div>
-    <div class="row">
-        <div class="col-lg-8 p-5" id="box">
+
+    <!-- registration form  -->
+    <div class="row" id="container">
+        <div class="col-lg-6 p-5 ml-lg-4" id="box">
             <form action="../connection/register.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name"
+                        required>
+                    <small id="namemsg" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+                    <input type="tel" class="form-control" id="mobile" name="mobile"
+                        placeholder="Enter your mobile number" max="10" required>
                     <small id="mobileHelp" class="form-text text-muted">We'll never share your phone number with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                        required>
+                    <small id="passmsg" class="form-text text-muted">We'll never share your password with anyone
+                        else.</small>
                 </div>
                 <div class="form-group">
                     <label for="cpassword"></label>
-                    <input type="password" id="cpassword" name="cpassword" class="form-control" placeholder="Confirm password" required>
+                    <input type="password" id="cpassword" name="cpassword" class="form-control"
+                        placeholder="Confirm password" required>
+                    <small id="cpmsg" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
@@ -48,16 +59,84 @@
                 <div class="form-group">
                     Upload Image<input type="file" name="photo" class="form-control" required>
                 </div>
-                <label>Login As:</label>
+                <label>Register As:</label>
                 <select name="role" id="options" required>
                     <option value="1">Voter</option>
                     <option value="2">Party</option>
                 </select><br><br>
-                <button type="submit" class="btn btn-primary">Register</button><br><br>
+                <button type="submit" id="regBtn" class="btn btn-primary">Register</button><br><br>
                 Already Registerd?? <a href="../index.html">LogIn Here</a>
             </form>
         </div>
+
+        <!-- Rules section  -->
+        <div class="col-lg-4 mt-4 p-3 ml-lg-2">
+            <h2 class="text-center card-header">Rules For Registration</h2>
+            <ul class="m-2 text-center list-group list-group-flush">
+                <li class="m-2 list-group-item">
+                    <h4>Name should contain letters only within the range of 6-16 no digit and no special character is
+                        allowed .</h4>
+                    <small>e.g. Steve smith</small>
+                </li>
+                <li class="m-2 list-group-item">
+                    <h4>The password should be a combination of letters , special characters , digits etc.</h4>
+                    <small>e.g. Password@123$</small>
+                </li>
+            </ul>
+        </div>
     </div>
+
+    <script>
+
+        //code to validate username
+        let validate = true;
+        let reg = /^[a-zA-Z'' ']{6,25}$/;
+        let name = document.getElementById("name");
+        name.addEventListener("input", (e) => {
+            let namemsg = document.getElementById('namemsg');
+            if (!reg.test(e.target.value)) {
+                namemsg.innerText = `Please Enter Valid Name`;
+                validate = false;
+            }
+            else {
+                namemsg.innerText = "Looks good!";
+
+            }
+        })
+
+
+        //code to validate password and confirm password
+        var regex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        let password = document.getElementById('password');
+        let passVal;
+        // function to check whether the enterd pass satisfy the conditions or not.
+        password.addEventListener("input", (e) => {
+            let passmsg = document.getElementById('passmsg');
+            passVal = e.target.value;
+            if (!regex.test(passVal)) {
+                passmsg.innerText = `Password does not satisfy the conditions`;
+                validate = false;
+            }
+            else {
+                passmsg.innerText = "Looks good!";
+
+            }
+        })
+
+
+        //function to confirm the password
+        let cpassword = document.getElementById('cpassword');
+        cpassword.addEventListener("input", (e) => {
+            let cpmsg = document.getElementById('cpmsg');
+            if (passVal == e.target.value) {
+                cpmsg.innerText = "Looks good!";
+            }
+            else {
+                cpmsg.innerText = "Password Does Not match";
+            }
+        })
+
+    </script>
     <script src="../bootsrrap/js/bootstrap.min.js"></script>
 </body>
 

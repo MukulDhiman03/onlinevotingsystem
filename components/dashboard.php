@@ -23,13 +23,14 @@ if ($_SESSION['userdata']['status'] == 0) {
     <link rel="stylesheet" href="../bootsrrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style/dashboard.css">
     <style>
-        #voted{
+        #voted {
             border-radius: 5px;
             padding: 4px;
             color: black;
             background-color: green;
         }
-        #votebtn{
+
+        #votebtn {
             border-radius: 5px;
             padding: 4px;
             color: white;
@@ -50,19 +51,14 @@ if ($_SESSION['userdata']['status'] == 0) {
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="../userPics/<?php echo $userdata['image'] ?>">
                     <div class="card-body">
-                        <!-- <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Name: <b><?php echo $userdata['name'] ?></b></li>
                         <li class="list-group-item">Mobile: <b><?php echo $userdata['mobile'] ?></b></li>
                         <li class="list-group-item">Address: <b><?php echo $userdata['address'] ?></b></li>
                         <li class="list-group-item">Status: <b><?php echo $status ?></b></li>
+                        <li class="list-group-item"><a href="logout.php"><button type="submit" class="btn btn-primary ">Log Out</button></a></b></li>
                     </ul>
-                    <!-- <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div> -->
                 </div>
             </div>
             <div class="col-5" id="group">
@@ -85,22 +81,19 @@ if ($_SESSION['userdata']['status'] == 0) {
                                     <input type="hidden" name="gvotes" value="<?php echo $partiesdata[$i]['votes'] ?>">
                                     <input type="hidden" name="gid" value="<?php echo $partiesdata[$i]['id'] ?>">
                                     <?php
-                                        if($_SESSION['userdata']['status']==0)
-                                        {
-                                            ?>
-                                            <div class="text-center mt-2">
+                                    if ($_SESSION['userdata']['status'] == 0) {
+                                    ?>
+                                        <div class="text-center mt-2">
                                             <input type="submit" name="votebtn" value="Vote" id="votebtn">
-                                            </div>
-                                            <?php
-                                        }
-                                        else
-                                        {
-                                            ?>
-                                            <div class="text-center mt-2">
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="text-center mt-2">
                                             <button disabled type="button" name="votebtn" value="Vote" id="voted">Voted</button>
-                                            </div>
-                                            <?php
-                                        }
+                                        </div>
+                                    <?php
+                                    }
                                     ?>
                                 </form>
                                 <hr>
@@ -114,7 +107,7 @@ if ($_SESSION['userdata']['status'] == 0) {
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-5">
+    <!-- <div class="container-fluid mt-5">
         <div class="row justify-content-between">
             <div class="col-1">
                 <a href="../"><button class="btn btn-primary ">Back</button></a>
@@ -123,7 +116,7 @@ if ($_SESSION['userdata']['status'] == 0) {
                 <a href="logout.php"><button type="submit" class="btn btn-primary ">Log Out</button></a>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="../bootsrrap/js/bootstrap.min.js"></script>
 
 </body>
